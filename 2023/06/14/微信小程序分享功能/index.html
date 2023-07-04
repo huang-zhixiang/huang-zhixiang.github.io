@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="分享到朋友圈开启分享到朋友圈小程序默认规定不允许分享页面到朋友圈，开发者需要通过 onShareTimeline API设置该功能。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序分享功能">
+<meta property="og:url" content="http://example.com/2023/06/14/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%88%86%E4%BA%AB%E5%8A%9F%E8%83%BD/index.html">
+<meta property="og:site_name" content="Never 404">
+<meta property="og:description" content="分享到朋友圈开启分享到朋友圈小程序默认规定不允许分享页面到朋友圈，开发者需要通过 onShareTimeline API设置该功能。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-06-13T16:07:54.000Z">
+<meta property="article:modified_time" content="2023-06-28T10:50:17.671Z">
+<meta property="article:author" content="Never 404">
+<meta property="article:tag" content="微信小程序">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2023/06/14/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%88%86%E4%BA%AB%E5%8A%9F%E8%83%BD/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/06/14/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%88%86%E4%BA%AB%E5%8A%9F%E8%83%BD/","path":"2023/06/14/微信小程序分享功能/","title":"微信小程序分享功能"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>微信小程序分享功能 | Never 404</title>
+  
+
+
+
+
+
+
+  <script async defer data-website-id="" src=""></script>
+
+  <script defer data-domain="" src=""></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Never 404</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E4%BA%AB%E5%88%B0%E6%9C%8B%E5%8F%8B%E5%9C%88"><span class="nav-number">1.</span> <span class="nav-text">分享到朋友圈</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%90%AF%E5%88%86%E4%BA%AB%E5%88%B0%E6%9C%8B%E5%8F%8B%E5%9C%88"><span class="nav-number">1.1.</span> <span class="nav-text">开启分享到朋友圈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E9%A1%B5%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">单页模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E9%A1%B5%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84%E9%99%90%E5%88%B6"><span class="nav-number">1.3.</span> <span class="nav-text">单页模式下的限制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E5%8F%91-%E5%8F%91%E9%80%81%E7%BB%99%E6%9C%8B%E5%8F%8B"><span class="nav-number">2.</span> <span class="nav-text">转发(发送给朋友)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E5%BC%80%E5%90%AF%E5%88%86%E4%BA%AB"><span class="nav-number">3.</span> <span class="nav-text">直接开启分享</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Never 404"
+      src="/images/headimage.png">
+  <p class="site-author-name" itemprop="name">Never 404</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Huang-zhixiang" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Huang-zhixiang" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/14/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%88%86%E4%BA%AB%E5%8A%9F%E8%83%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headimage.png">
+      <meta itemprop="name" content="Never 404">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Never 404">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="微信小程序分享功能 | Never 404">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          微信小程序分享功能
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-14 00:07:54" itemprop="dateCreated datePublished" datetime="2023-06-14T00:07:54+08:00">2023-06-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.5k</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="分享到朋友圈"><a href="#分享到朋友圈" class="headerlink" title="分享到朋友圈"></a>分享到朋友圈</h3><h4 id="开启分享到朋友圈"><a href="#开启分享到朋友圈" class="headerlink" title="开启分享到朋友圈"></a>开启分享到朋友圈</h4><p>小程序默认规定不允许分享页面到朋友圈，开发者需要通过 <strong>onShareTimeline</strong> API设置该功能。</p>
+<span id="more"></span>
+
+<p>在页面js的page中添加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">onShareTimeline()&#123;</span><br><span class="line">       return &#123;</span><br><span class="line">           title: &#x27;TryonShareTimeline&#x27;,</span><br><span class="line">           imageUrl:&#x27;https://img.yzcdn.cn/vant/logo.png&#x27;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>onShareTimeline ()用于监听右上角菜单“分享到朋友圈”按钮的行为，并自定义分享内容。</p>
+<p><strong>注意：只有定义了此事件处理函数，右上角菜单才会显示“分享到朋友圈”按钮</strong></p>
+<p>参数：</p>
+<table>
+<thead>
+<tr>
+<th align="left">字段</th>
+<th align="left">说明</th>
+<th align="left">默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">title</td>
+<td align="left">自定义标题，即朋友圈列表页上显示的标题</td>
+<td align="left">当前小程序名称</td>
+</tr>
+<tr>
+<td align="left">query</td>
+<td align="left">自定义页面路径中携带的参数，如 path?a&#x3D;1&amp;b&#x3D;2 的 “?” 后面部分</td>
+<td align="left">当前页面路径携带的参数</td>
+</tr>
+<tr>
+<td align="left">imageUrl</td>
+<td align="left">自定义图片路径，可以是本地文件或者网络图片。支持 PNG 及 JPG，显示图片长宽比是 1:1。</td>
+<td align="left">默认使用小程序 Logo</td>
+</tr>
+</tbody></table>
+<p>接口文档：<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onShareTimeline">https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onShareTimeline</a></p>
+<h4 id="单页模式"><a href="#单页模式" class="headerlink" title="单页模式"></a>单页模式</h4><p>用户在朋友圈打开分享的小程序页面，并不会真正打开小程序，而是进入一个“<strong>小程序单页模式</strong>”的页面，“单页模式”有以下特点：</p>
+<ol>
+<li><p>“单页模式”下，页面顶部固定有导航栏，标题显示为当前页面 JSON 配置的标题。底部固定有操作栏，点击操作栏的“前往小程序”可打开小程序的当前页面。顶部导航栏与底部操作栏均不支持自定义样式。</p>
+</li>
+<li><p>“单页模式”默认运行的是小程序页面内容，但由于页面固定有顶部导航栏与底部操作栏，很可能会影响小程序页面的布局。因此，请开发者特别注意适配“单页模式”的页面交互，以实现流畅完整的交互体验。</p>
+</li>
+<li><p>“单页模式”下，一些组件或接口存在一定限制，详情见下文<a href="https://link.juejin.cn/?target=https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/share-timeline.html%23%E5%8D%95%E9%A1%B5%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84%E9%99%90%E5%88%B6">单页模式下的限制</a>章节</p>
+</li>
+</ol>
+<h4 id="单页模式下的限制"><a href="#单页模式下的限制" class="headerlink" title="单页模式下的限制"></a>单页模式下的限制</h4><p>小程序“单页模式”适用于纯内容展示场景，可实现的交互与接口能力有限，因此存在如下限制：</p>
+<ol>
+<li><p>页面无登录态，与登录相关的接口，如 <code>wx.login</code> 均不可用</p>
+</li>
+<li><p>不允许跳转到其它页面，包括任何跳小程序页面、跳其它小程序、跳微信原生页面</p>
+</li>
+<li><p>不允许横屏使用</p>
+</li>
+<li><p>若页面包含 tabBar，tabBar 不会渲染，包括自定义 tabBar</p>
+</li>
+<li><p>本地存储与小程序普通模式不共用</p>
+</li>
+</ol>
+<h3 id="转发-发送给朋友"><a href="#转发-发送给朋友" class="headerlink" title="转发(发送给朋友)"></a>转发(发送给朋友)</h3><p><strong>onShareAppMessage(Object object)</strong></p>
+<p>监听用户点击页面内转发按钮（<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/component/button.html">button</a> 组件 <code>open-type=&quot;share&quot;</code>）或右上角菜单“转发”按钮的行为，并自定义转发内容。</p>
+<p><strong>注意：只有定义了此事件处理函数，右上角菜单才会显示“转发”按钮</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">类型</th>
+<th align="left">说明</th>
+<th align="left">最低版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">from</td>
+<td align="left">String</td>
+<td align="left">转发事件来源。 <code>button</code>：页面内转发按钮； <code>menu</code>：右上角转发菜单</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html">1.2.4</a></td>
+</tr>
+<tr>
+<td align="left">target</td>
+<td align="left">Object</td>
+<td align="left">如果 <code>from</code> 值是 <code>button</code>，则 <code>target</code> 是触发这次转发事件的 <code>button</code>，否则为 <code>undefined</code></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html">1.2.4</a></td>
+</tr>
+<tr>
+<td align="left">webViewUrl</td>
+<td align="left">String</td>
+<td align="left">页面中包含<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html">web-view</a>组件时，返回当前<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html">web-view</a>的url</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html">1.6.4</a></td>
+</tr>
+</tbody></table>
+<p>此事件处理函数需要 return 一个 Object，用于自定义转发内容，返回内容如下：</p>
+<p><strong>自定义转发内容</strong> 基础库 <a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html">2.8.1</a> 起，分享图支持云图片。</p>
+<table>
+<thead>
+<tr>
+<th align="left">字段</th>
+<th align="left">说明</th>
+<th align="left">默认值</th>
+<th align="left">最低版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">title</td>
+<td align="left">转发标题</td>
+<td align="left">当前小程序名称</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">path</td>
+<td align="left">转发路径</td>
+<td align="left">当前页面 path ，必须是以 &#x2F; 开头的完整路径</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">imageUrl</td>
+<td align="left">自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径。支持PNG及JPG。显示图片长宽比是 5:4。</td>
+<td align="left">使用默认截图</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html">1.5.0</a></td>
+</tr>
+<tr>
+<td align="left">promise</td>
+<td align="left">如果该参数存在，则以 resolve 结果为准，如果三秒内不 resolve，分享会使用上面传入的默认参数</td>
+<td align="left"></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html">2.12.0</a></td>
+</tr>
+</tbody></table>
+<p>代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">  onShareAppMessage() &#123;</span><br><span class="line">    const promise = new Promise(resolve =&gt; &#123;</span><br><span class="line">      setTimeout(() =&gt; &#123;</span><br><span class="line">        resolve(&#123;</span><br><span class="line">          title: &#x27;自定义转发标题&#x27;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;, 2000)</span><br><span class="line">    &#125;)</span><br><span class="line">    return &#123;</span><br><span class="line">      title: &#x27;自定义转发标题&#x27;,</span><br><span class="line">      path: &#x27;/page/user?id=123&#x27;,</span><br><span class="line">      promise </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>接口文档：<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onShareAppMessage-Object-object">https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onShareAppMessage-Object-object</a></p>
+<h3 id="直接开启分享"><a href="#直接开启分享" class="headerlink" title="直接开启分享"></a>直接开启分享</h3><p>使用 <a href="https://link.juejin.cn/?target=https://developers.weixin.qq.com/minigame/dev/api/share/wx.showShareMenu.html">wx.showShareMenu</a> 配置<strong><strong>当前页</strong></strong>可以被转发和分享朋友圈，注意是当前页，也就是说只要在需要转发或分享朋友圈中的 Page 下调用一下方法就可以实现转发或分享朋友圈功能(但无法使用自定义配置，例如标题、图片等)，一般都在 page 的 onLoad 中调用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wx.showShareMenu(&#123;</span><br><span class="line">	withShareTicket: true,</span><br><span class="line">	menus: [&#x27;shareAppMessage&#x27;, &#x27;shareTimeline&#x27;],</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>当然，也可以禁用转发或分享朋友圈功能</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wx.hideShareMenu(&#123;</span><br><span class="line">	menus: [&#x27;shareAppMessage&#x27;, &#x27;shareTimeline&#x27;],</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>“shareAppMessage”表示“发送给朋友”按钮，”shareTimeline”表示“分享到朋友圈”按钮</p>
+</blockquote>
+<blockquote>
+<p>显示“分享到朋友圈”按钮时必须同时显示“发送给朋友”按钮，显示“发送给朋友”按钮时则允许不显示“分享到朋友圈”按钮</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag"># 微信小程序</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/06/13/%E9%AA%A8%E6%9E%B6%E5%B1%8F%E5%8A%A0%E8%BD%BD/" rel="prev" title="骨架屏加载">
+                  <i class="fa fa-chevron-left"></i> 骨架屏加载
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/06/30/Vue/" rel="next" title="Vue">
+                  Vue <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Never 404</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+
+</body>
+</html>

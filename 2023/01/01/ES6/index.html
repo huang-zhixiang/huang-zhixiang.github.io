@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="块级作用域也就是const 和 let let定义的变量允许被修改 const定义的变量不允许被修改。所以const定义变量的同时就应该给进行赋值了。 let和const定义的变量不能被重复定义 &amp;#123;     let a &#x3D; 1     const b &#x3D; 2     console.log(a, b)&#x2F;&#x2F;1 2 &amp;#125;  console.log(a)&#x2F;&#x2F;错误，提示你没有声明 con">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6">
+<meta property="og:url" content="http://example.com/2023/01/01/ES6/index.html">
+<meta property="og:site_name" content="Never 404">
+<meta property="og:description" content="块级作用域也就是const 和 let let定义的变量允许被修改 const定义的变量不允许被修改。所以const定义变量的同时就应该给进行赋值了。 let和const定义的变量不能被重复定义 &amp;#123;     let a &#x3D; 1     const b &#x3D; 2     console.log(a, b)&#x2F;&#x2F;1 2 &amp;#125;  console.log(a)&#x2F;&#x2F;错误，提示你没有声明 con">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-01-01T12:00:00.000Z">
+<meta property="article:modified_time" content="2023-07-01T07:56:55.040Z">
+<meta property="article:author" content="Never 404">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="ES6">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2023/01/01/ES6/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/01/01/ES6/","path":"2023/01/01/ES6/","title":"ES6"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>ES6 | Never 404</title>
+  
+
+
+
+
+
+
+  <script async defer data-website-id="" src=""></script>
+
+  <script defer data-domain="" src=""></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Never 404</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">1.</span> <span class="nav-text">块级作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">箭头函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC"><span class="nav-number">3.</span> <span class="nav-text">解构赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%95%E5%BC%80%E8%BF%90%E7%AE%97%E7%AC%A6%E2%80%A6"><span class="nav-number">4.</span> <span class="nav-text">展开运算符…</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E7%AE%80%E5%86%99"><span class="nav-number">5.</span> <span class="nav-text">对象属性简写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95"><span class="nav-number">6.</span> <span class="nav-text">模板语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise"><span class="nav-number">7.</span> <span class="nav-text">Promise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1"><span class="nav-number">8.</span> <span class="nav-text">宏任务与微任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E%E6%8F%90%E5%8D%87"><span class="nav-number">9.</span> <span class="nav-text">声明提升</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87"><span class="nav-number">9.1.</span> <span class="nav-text">函数提升</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E4%BC%98%E5%85%88%E4%BA%8E%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87"><span class="nav-number">9.2.</span> <span class="nav-text">函数优先于变量提升</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">10.</span> <span class="nav-text">函数作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#if%E8%AF%AD%E5%8F%A5%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">10.1.</span> <span class="nav-text">if语句的作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE"><span class="nav-number">10.2.</span> <span class="nav-text">作用域链</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D"><span class="nav-number">11.</span> <span class="nav-text">深浅拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%B5%85%E6%8B%B7%E8%B4%9D"><span class="nav-number">11.1.</span> <span class="nav-text">实现浅拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="nav-number">11.2.</span> <span class="nav-text">实现深拷贝</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Never 404"
+      src="/images/headimage.png">
+  <p class="site-author-name" itemprop="name">Never 404</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Huang-zhixiang" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Huang-zhixiang" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/01/01/ES6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headimage.png">
+      <meta itemprop="name" content="Never 404">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Never 404">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="ES6 | Never 404">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ES6
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-01-01 20:00:00" itemprop="dateCreated datePublished" datetime="2023-01-01T20:00:00+08:00">2023-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>8.2k</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h2><p>也就是const 和 let</p>
+<p>let定义的变量允许被修改</p>
+<p>const定义的变量不允许被修改。所以const定义变量的同时就应该给进行赋值了。</p>
+<p>let和const定义的变量不能被重复定义</p>
+<pre><code>&#123;
+    let a = 1
+    const b = 2
+    console.log(a, b)//1 2
+&#125;
+
+console.log(a)//错误，提示你没有声明
+console.log(b)//错误，提示你没有声明
+</code></pre>
+<span id="more"></span>
+
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">(x) =&gt; &#123; x+<span class="number">1</span> &#125; </span><br><span class="line">相当于</span><br><span class="line"><span class="keyword">function</span>(<span class="params">x</span>)&#123; x+<span class="number">1</span> &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(x)=&gt;&#123; <span class="keyword">return</span> x+<span class="number">6</span> &#125;</span><br><span class="line">相当于</span><br><span class="line"><span class="keyword">function</span>(<span class="params">x</span>)&#123; <span class="keyword">return</span> x + <span class="number">6</span> &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(x) =&gt; x+<span class="number">6</span></span><br><span class="line">相当于</span><br><span class="line"><span class="keyword">function</span>(<span class="params">x</span>)&#123; <span class="keyword">return</span> x+<span class="number">6</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">    <span class="attr">name</span>:<span class="string">&#x27;webteacher&#x27;</span>,</span><br><span class="line">    <span class="attr">age</span>:<span class="number">18</span>,</span><br><span class="line">    <span class="attr">sex</span>:<span class="string">&#x27;man&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> &#123;name,age,sex&#125; = person</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name,age,sex);<span class="comment">//webteacher 18 man</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//原数据&#123;data: &#123;…&#125;, status: 200, statusText: &#x27;OK&#x27;, headers: &#123;…&#125;, config: &#123;…&#125;, …&#125;</span></span><br><span class="line"><span class="comment">//解构以后打印的数据&#123;status: 200, message: &#x27;获取购物车列表数据成功！&#x27;, list: Array(10)&#125;</span></span><br><span class="line"><span class="keyword">const</span> &#123;<span class="attr">data</span>:res&#125; = <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="property">$http</span>.<span class="title function_">get</span>(<span class="string">&#x27;/cart&#x27;</span>); </span><br><span class="line"><span class="comment">//解构出res中的data</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(res);</span><br></pre></td></tr></table></figure>
+
+<h2 id="展开运算符…"><a href="#展开运算符…" class="headerlink" title="展开运算符…"></a>展开运算符…</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> b = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line"><span class="keyword">let</span> c = [...a,...b]; <span class="comment">// [1,2,3,4,5,6]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//同样适用于对象类型</span></span><br><span class="line"><span class="keyword">const</span> a = &#123;<span class="attr">name</span>:<span class="string">&#x27;xiaoming&#x27;</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> b = &#123;<span class="attr">age</span>:<span class="number">18</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> c = &#123;...a,...b&#125;; <span class="comment">// &#123;&quot;name&quot;:&quot;xiaoming&quot;,&quot;age&quot;:18&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="对象属性简写"><a href="#对象属性简写" class="headerlink" title="对象属性简写"></a>对象属性简写</h2><p>当变量作为对象的value值时，如果变量与key的名字一样可以简写</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">&#x27;名字&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    <span class="attr">name</span>: name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj2 = &#123;</span><br><span class="line">    name <span class="comment">//简写</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj, obj2)<span class="comment">//&#123;name: &#x27;名字&#x27;&#125; &#123;name: &#x27;名字&#x27;&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h2><p>字符串中需要添加变量时用于代替+号连接的方案。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> id = <span class="number">123</span></span><br><span class="line"><span class="keyword">const</span> mes = <span class="string">&#x27;id是&#x27;</span> + id	<span class="comment">//旧方案</span></span><br><span class="line"><span class="keyword">const</span> mes2 = <span class="string">`id是<span class="subst">$&#123;id&#125;</span>`</span>	<span class="comment">//模板字符串</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(mes, mes2)	<span class="comment">//id是123 id是123</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">$http</span>.<span class="title function_">get</span>(<span class="string">`categories/<span class="subst">$&#123;<span class="variable language_">this</span>.cateId&#125;</span>/attributes`</span>，</span><br><span class="line">&#123; <span class="attr">params</span>: &#123; <span class="attr">sel</span>: <span class="variable language_">this</span>.<span class="property">activeName</span> &#125; &#125;)</span><br><span class="line"><span class="comment">//实际的url请求地址categories/52/attributes</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p>Promise 有两个调用 true 使用 resolve 调用，false 使用 reject 调用</p>
+<p>resolve 使用 then 回调，reject 使用 catch 回调</p>
+<p>primise 有一个最终执行的回调 finally () 无论成功还是失败都会进行回调</p>
+<pre><code>const isPregnant = false;
+const promise = new Promise( (resolve,reject) =&gt; &#123;
+    if(isPregnant) &#123;
+        resolve(&quot;true调用&quot;)
+    &#125; else &#123;
+        reject(&quot;false调用&quot;)
+    &#125;
+&#125;)
+
+
+promise.then( name =&gt; &#123;
+    console.log(name);
+&#125;)
+.catch( name =&gt; &#123;
+    console.log(name);
+&#125;)
+.finally(()=&gt; &#123;
+    console.log(&quot;最终执行&quot;);
+&#125;);
+</code></pre>
+<h2 id="宏任务与微任务"><a href="#宏任务与微任务" class="headerlink" title="宏任务与微任务"></a>宏任务与微任务</h2><p>由于 JavaScript 是单线程的所以执行任务的顺序按照 同步任务、微任务、宏任务 的顺序执行，且按照先入先出的原则</p>
+<p>宏任务类型：</p>
+<p>1. 新程序或子程序被直接执行</p>
+<p>2. 事件的回调函数</p>
+<p>3.setTimeout () 和 setInterval ()</p>
+<p>微任务类型：</p>
+<p>1.Promise.then().catch().finally()</p>
+<p>2.MutationObserver</p>
+<p>3.Object.observe</p>
+<p>先执行同步任务遇到微任务时将微任务放如微任务队列，遇到宏任务放如宏任务队列</p>
+<p>等全部的同步任务执行之后，先将微任务队列中的微任务执行，再执行宏任务队列中的宏任务</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;1&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line"> <span class="title function_">resolve</span>(<span class="string">&#x27;2&#x27;</span>)</span><br><span class="line"></span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;3&#x27;</span>)</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line"> <span class="title function_">resolve</span>(<span class="string">&#x27;4&#x27;</span>)</span><br><span class="line"></span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;5&#x27;</span>) </span><br><span class="line"></span><br><span class="line">输出： <span class="number">1</span> <span class="number">5</span> <span class="number">2</span> <span class="number">4</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="声明提升"><a href="#声明提升" class="headerlink" title="声明提升"></a>声明提升</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function miahhu()&#123;</span><br><span class="line">	console.log(a++);</span><br><span class="line">    var a = 100;</span><br><span class="line">    console.log(a);</span><br><span class="line">&#125;</span><br><span class="line">miahhu();</span><br></pre></td></tr></table></figure>
+
+<p>JavaScript会将函数和变量提升到开头</p>
+<p>例如上面函数的的实际运行是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function miahhu()&#123;</span><br><span class="line">	var a;</span><br><span class="line">	console.log(a++);</span><br><span class="line">    a = 100;</span><br><span class="line">    console.log(a);</span><br><span class="line">&#125;</span><br><span class="line">miahhu();</span><br><span class="line"></span><br><span class="line">输出 NaN a;    (undefined++ 会输出NaN)</span><br></pre></td></tr></table></figure>
+
+<h3 id="函数提升"><a href="#函数提升" class="headerlink" title="函数提升"></a>函数提升</h3><p>大家可能在书写代码的时候发现，无论函数封装写在前或者后，我们的函数调用都可以顺利执行。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fn1();//输出hello</span><br><span class="line">function fn1() &#123;</span><br><span class="line">    console.log(&quot;hello&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>为什么呢？其实函数声明,包括函数的代码块都i会被提升，所以调用函数的时候，函数声明已经被执行过了。</p>
+<p>实际的运行是这样的</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fn1</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn1</span>();</span><br></pre></td></tr></table></figure>
+
+
+
+<p>但</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fn2</span>();<span class="comment">//报错，fn2不是一个函数</span></span><br><span class="line"><span class="keyword">var</span> fn2 = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;world&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以看到 以给匿名函数赋值的形式定义函数，只会提升函数声明，但是函数表达式却不会被提升。因为变量<code>fn2</code>被提升,但是并没有赋值，我们书写的<code>fn2()</code>无法运行，而抛出了异常。</p>
+<p>以下就是实际执行的顺序：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fn2;</span><br><span class="line"><span class="title function_">fn2</span>();</span><br><span class="line">fn2 = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;world&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="函数优先于变量提升"><a href="#函数优先于变量提升" class="headerlink" title="函数优先于变量提升"></a>函数优先于变量提升</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fn3</span>();</span><br><span class="line"><span class="keyword">var</span> fn3=<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn3-1&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn3</span>();</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn3</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn3-2&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>函数会被优先提升，但后才是变量提升</strong>，但是当函数提升后，然后发现还有一个变量声明和函数声明一样的名称，这个就是上一篇文章说的重复声明，那么这个<code>var fn3</code> 是不生效直接忽略的。</p>
+<p>所以实际代码运行顺序是：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fn3</span>(<span class="params"></span>) &#123;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn3-2&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn3</span>();<span class="comment">//fn3-2</span></span><br><span class="line">fn3=<span class="keyword">function</span> (<span class="params"></span>) &#123;<span class="comment">//var fn3因为重复声明被忽略</span></span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn3-1&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn3</span>();<span class="comment">//fn3-1</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>问题1：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function test()&#123;  </span><br><span class="line">  alert(a); </span><br><span class="line">  var a=&quot;World&quot;;</span><br><span class="line">  alert(a);</span><br><span class="line">&#125;</span><br><span class="line">test();</span><br></pre></td></tr></table></figure>
+
+<p>实际执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function test()&#123;</span><br><span class="line">   //作用域有声明a，声明提升到这里</span><br><span class="line">   var a;</span><br><span class="line">   alert(a);//本作用域声明a，所以不去使用父作用域的a，但是本作用域的a没有赋值，所以弹出undefined</span><br><span class="line">   a=&quot;World&quot;;</span><br><span class="line">   alert(a);//赋值后 ，弹出world</span><br><span class="line">&#125;</span><br><span class="line">test();</span><br></pre></td></tr></table></figure>
+
+
+
+<p>问题2：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">outer</span>(<span class="params"></span>)&#123; </span><br><span class="line">  a = <span class="number">2</span>; </span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">inner</span>(<span class="params"></span>)&#123;       </span><br><span class="line">      <span class="title function_">alert</span>(a); </span><br><span class="line">      a = <span class="number">4</span>; </span><br><span class="line">  &#125; </span><br><span class="line">  <span class="title function_">inner</span>();</span><br><span class="line">&#125; </span><br><span class="line"><span class="title function_">outer</span>(); </span><br><span class="line"><span class="title function_">alert</span>(a);</span><br></pre></td></tr></table></figure>
+
+<p>实际执行</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">outer</span>(<span class="params"></span>)&#123;</span><br><span class="line">   a = <span class="number">2</span>;</span><br><span class="line">   <span class="keyword">function</span> <span class="title function_">inner</span>(<span class="params"></span>)&#123;</span><br><span class="line">       <span class="comment">//本作用域没有声明a，所以没有任何提升，直接执行</span></span><br><span class="line">       <span class="title function_">alert</span>(a); <span class="comment">// 所以弹出 a为 2</span></span><br><span class="line">       a = <span class="number">4</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="title function_">inner</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">outer</span>();</span><br><span class="line"><span class="title function_">alert</span>(a);<span class="comment">//只有全局声明了a，所以所有作用域使用的都是全局的a，所以a最后被赋值为4 弹出4</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h2><p><strong>全局作用域和局部作用域</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">&quot;apple&quot;</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fighty</span>(<span class="params"></span>)&#123;</span><br><span class="line">	<span class="keyword">var</span> a = <span class="string">&quot;angel&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);  <span class="comment">//输出apple</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="if语句的作用域"><a href="#if语句的作用域" class="headerlink" title="if语句的作用域"></a>if语句的作用域</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">&quot;apple&quot;</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">	<span class="keyword">var</span> a = <span class="string">&quot;angel&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);  <span class="comment">//输出angel</span></span><br></pre></td></tr></table></figure>
+
+<p>if语句中定义的变量执行完会变为当前执行环境的变量</p>
+<h3 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h3><p>优先在当前作用域中寻找，如果找不到就向上级作用域中寻找</p>
+<h2 id="深浅拷贝"><a href="#深浅拷贝" class="headerlink" title="深浅拷贝"></a>深浅拷贝</h2><p>深拷贝拷贝的数据是互相独立互不影响的</p>
+<p>浅拷贝是拷贝内存地址，改变其中一个会影响到另一个</p>
+<p>js的数据类型分为两类<strong>基本数据类型</strong>和<strong>引用数据类型</strong></p>
+<p><strong>基本数据类型</strong>有<code>String</code>、<code>Number</code>、<code>Undefined</code>、<code>Null</code>、<code>Boolean</code>、<code>Symbol</code>，基本类型在赋值的过程中都是深拷贝，从一个变量复制基本类型的值到另一个变量后这两个变量的值是完全独立的，互不影响。</p>
+<p><strong>引用数据类型</strong>如<code>Object</code>、<code>Array</code>…，当变量复制引用类型值的时候会复制一个地址，通过这个地址在堆内存中获取到相应的值，所以引用类型的值是按引用访问。那这样复制与被复制的对象用的都是同一个地址，修改其中一个值会影响到另一个。</p>
+<h3 id="实现浅拷贝"><a href="#实现浅拷贝" class="headerlink" title="实现浅拷贝"></a>实现浅拷贝</h3><p><strong>1.concat()</strong></p>
+<pre><code>var arr1 = [1, 2, &#123; num: 3 &#125;]
+var arr2 = [].concat(arr1)
+arr2[0] = 88
+arr2[2].num = 99
+console.log(arr1) // [1, 2, &#123;num: 99&#125;]
+console.log(arr2) // [88, 2 &#123;num: 99&#125;]
+</code></pre>
+<p><strong>2.slice()</strong></p>
+<pre><code>var arr1 = [1, 2, &#123;num: 3&#125;]
+var arr2 = arr1.slice()
+arr2[0] = 88
+arr2[2].num = 99
+console.log(arr1) // [1, 2, &#123;num: 99&#125;]
+console.log(arr2) // [88, 2 &#123;num: 99&#125;]
+</code></pre>
+<p><strong>3.展开运算符</strong></p>
+<p>拷贝对象</p>
+<pre><code>let obj = &#123;
+  name: &#39;小鱼&#39;,
+  info: &#123;
+    age: 18,
+  &#125;
+&#125;
+
+let copyObj = &#123;
+  ...obj
+&#125;
+
+copyObj.name = &#39;小鸡&#39; // 基本数据类型
+copyObj.info.age = 88 // 引用数据类型
+console.log(obj)  //&#123; name: &#39;小鱼&#39;, info: &#123; age: 88 &#125; &#125;
+console.log(copyObj);  //&#123; name: &#39;小鸡&#39;, info: &#123; age: 88 &#125; &#125;
+</code></pre>
+<p>拷贝数组</p>
+<pre><code>var arr1 = [1, 2, &#123;num: 3&#125;]
+var arr2 = [...arr1]
+arr2[0] = 88
+arr2[2].num = 99
+console.log(arr1) // [1, 2, &#123;num: 99&#125;]
+console.log(arr2) // [88, 2 &#123;num: 99&#125;]
+</code></pre>
+<p>slice()、concat()、展开运算符(…)都可以将一个数组拷贝给另一个数组。但是如果数组的元素是基本类型的时候，实现是是拷贝一份的深拷贝，互不影响。而如果数组元素是引用数据类型(对象或数组)，就只会进行浅拷贝(拷贝数组和对象的地址)，修改其中一个元素会影响到全部。上面这些方法都只能实现浅拷贝，只能拷贝一层对象，如果遇到引用类型则会改变元宿主的值。那所以总结浅拷贝的原理就是<strong>如果是基本数据类型，则直接拷贝值；如果引用数据类型，拷贝一层对象属性且两个对象指向同一个内存地址</strong></p>
+<p><strong>直接赋值</strong></p>
+<pre><code>var arr1 = [1, 2, &#123; num: 3 &#125;]
+var arr2 = arr1
+arr2[0] = 88
+arr2[2].num = 99
+console.log(arr1) // [88, 2, &#123;num: 99&#125;]
+console.log(arr2) // [88, 2 &#123;num: 99&#125;]
+</code></pre>
+<p>直接赋值不同于上面的三种方法，无论数组中的元素是引用类型还是基本数据类型，只要修改其中一个元素会影响到全部。</p>
+<p><strong>4.object.assign</strong></p>
+<p>object.assign 可以用于<strong>对象的合并</strong>等多个用途，其中一个用途就是可以进行<strong>浅拷贝</strong>。该方法的第一个参数是<strong>拷贝的目标对象</strong>，后面的参数是<strong>拷贝的来源对象</strong>，可以接受多个来源。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;小鱼&#x27;</span>,</span><br><span class="line">  <span class="attr">info</span>: &#123;</span><br><span class="line">    <span class="attr">age</span>: <span class="number">18</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj2 = &#123;</span><br><span class="line">    <span class="attr">sym</span>: <span class="title class_">Symbol</span>(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> copyObj = <span class="title class_">Object</span>.<span class="title function_">assign</span>(&#123;&#125;, obj, obj2)</span><br><span class="line">copyObj.<span class="property">name</span> = <span class="string">&#x27;小鸡&#x27;</span></span><br><span class="line">copyObj.<span class="property">info</span>.<span class="property">age</span> = <span class="number">88</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj)  <span class="comment">//&#123; name: &#x27;小鱼&#x27;, info: &#123; age: 88 &#125; &#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(copyObj);  <span class="comment">//&#123; name: &#x27;小鸡&#x27;, info: &#123; age: 88 &#125;,sym: Symbol(1) &#125;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>它不会拷贝对象的继承属性</li>
+<li>它不会拷贝对象的不可枚举的属性</li>
+<li>可以拷贝 Symbol 类型的属性</li>
+</ul>
+<h3 id="实现深拷贝"><a href="#实现深拷贝" class="headerlink" title="实现深拷贝"></a>实现深拷贝</h3><p><strong>1.使用JSON.stringify和JSON.parse</strong></p>
+<pre><code>var arr1 = [1, 2, &#123;num: 3&#125;]
+var arr2 = JSON.parse(JSON.stringify(arr1))
+arr2[0] = 88
+arr2[2].num = 99
+console.log(arr1) // [1, 2, &#123;num: 3&#125;]
+console.log(arr2) // [88, 2 &#123;num: 99&#125;]
+</code></pre>
+<p>但使用json的方法也有缺点</p>
+<pre><code>let obj = &#123;
+    name: &#39;小鱼&#39;,
+    info: &#123;
+        age: 18
+    &#125;,
+    arr: [1],
+    und: undefined,
+    sym: Symbol(&#39;999&#39;),
+    date: new Date(),
+    regexp: /^A/,
+    nan: Nan
+&#125;
+let copyObj = JSON.parse(JSON.stringify(obj));
+console.log(copyObj);
+
+// &#123;
+//    name: &#39;小鱼,
+//    date: &quot;2023-02-10T10:03:08.974Z&quot;,
+//    arr: [1],
+//    info: &#123;age:18&#125;,
+//    nan: null,
+//    regexp: &#123;&#125;,
+// &#125;
+</code></pre>
+<ul>
+<li>拷贝的对象的值中如果有函数、undefined、symbol 这几种类型，会直接忽略</li>
+<li>拷贝Date得到的是字符串</li>
+<li>拷贝RegExp得到的是空对象</li>
+<li>拷贝 NaN、Infinity 以及 -Infinity，得到的是null</li>
+<li>无法拷贝对象的循环应用</li>
+</ul>
+<p><strong>2.使用递归</strong></p>
+<p>拷贝的时候判断属性值的类型，如果是对象，继续递归调用深拷贝函数</p>
+<pre><code>function deepCopy(obj) &#123;
+    // 过滤原始类型
+    if (typeof obj !== &#39;object&#39;) return obj;
+    // 过滤null类型 因为typeof null==object，使用不能使用typeof判断null数据类型
+    if (obj == null) return obj;
+    let newObj = Array.isArray(obj) ? [] : &#123;&#125;;
+    // let newObj=obj instanceof Array ?[]:&#123;&#125;;
+    
+    // 拷贝Date对象
+    if (obj instanceof Date) &#123;
+      newObj = new Date(obj)
+    &#125;
+    // 拷贝RegExp对象
+    if (obj instanceof RegExp) &#123;
+      newObj = new RegExp(obj)
+    &#125;
+    for (let key in obj) &#123;
+      if (obj.hasOwnProperty(key)) &#123; //自己本身具有的属性
+        newObj[key] = typeof obj[key] == &#39;object&#39; ? deepCopy(obj[key]) : obj[key];
+      &#125;
+    &#125;
+    return newObj;
+&#125;
+</code></pre>
+<p>作者：一条小尾鱼<br>链接：<a target="_blank" rel="noopener" href="https://juejin.cn/post/7198455790498496570">https://juejin.cn/post/7198455790498496570</a><br>来源：稀土掘金<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/ES6/" rel="tag"># ES6</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/01/01/hexo%E5%90%8E%E5%8F%B0%E5%B8%B8%E9%A9%BB/" rel="prev" title="hexo后台常驻">
+                  <i class="fa fa-chevron-left"></i> hexo后台常驻
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/01/01/TypeScript/" rel="next" title="Typescript">
+                  Typescript <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Never 404</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+
+</body>
+</html>
