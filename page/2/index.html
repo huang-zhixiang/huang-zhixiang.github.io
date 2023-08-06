@@ -488,7 +488,7 @@ console.log(b)//错误，提示你没有声明
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/01/01/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/01/01/%E5%AF%BC%E5%87%BA%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E4%B8%BAexcl/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/headimage.png">
@@ -506,7 +506,7 @@ console.log(b)//错误，提示你没有声明
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/01/01/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/" class="post-title-link" itemprop="url">图片懒加载</a>
+          <a href="/2023/01/01/%E5%AF%BC%E5%87%BA%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E4%B8%BAexcl/" class="post-title-link" itemprop="url">导出表格数据为excl</a>
         </h2>
 
         <div class="post-meta-container">
@@ -535,7 +535,7 @@ console.log(b)//错误，提示你没有声明
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.3k</span>
+      <span>1.3k</span>
     </span>
 </div>
 
@@ -546,11 +546,14 @@ console.log(b)//错误，提示你没有声明
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="图片懒加载"><a href="#图片懒加载" class="headerlink" title="图片懒加载"></a>图片懒加载</h2><h4 id="一、懒加载的意义-为什么要使用懒加载"><a href="#一、懒加载的意义-为什么要使用懒加载" class="headerlink" title="一、懒加载的意义(为什么要使用懒加载)"></a>一、懒加载的意义(为什么要使用懒加载)</h4><p>对页面加载速度影响最大的就是图片，一张普通的图片可以达到几M的大小，而代码也许就只有几十KB。当页面图片很多时，页面的加载速度缓慢，几S钟内页面没有加载完成，也许会失去很多的用户。</p>
-<p>所以，对于图片过多的页面，为了加速页面加载速度，所以很多时候我们需要将页面内未出现在可视区域内的图片先不做加载， 等到滚动到可视区域后再去加载。这样子对于页面加载性能上会有很大的提升，也提高了用户体验</p>
+          <h3 id="Vue2"><a href="#Vue2" class="headerlink" title="Vue2"></a>Vue2</h3><p>需要用到两个包</p>
+<pre><code>npm install file-saver
+npm install xlsx
+</code></pre>
+<p>1.在src中创建配置文件fun.js</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2023/01/01/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/#more" rel="contents">
+              <a class="btn" href="/2023/01/01/%E5%AF%BC%E5%87%BA%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E4%B8%BAexcl/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -675,7 +678,7 @@ console.log(b)//错误，提示你没有声明
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/01/01/%E5%AF%BC%E5%87%BA%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E4%B8%BAexcl/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/01/01/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/headimage.png">
@@ -693,7 +696,7 @@ console.log(b)//错误，提示你没有声明
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/01/01/%E5%AF%BC%E5%87%BA%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E4%B8%BAexcl/" class="post-title-link" itemprop="url">导出表格数据为excl</a>
+          <a href="/2023/01/01/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/" class="post-title-link" itemprop="url">图片懒加载</a>
         </h2>
 
         <div class="post-meta-container">
@@ -722,7 +725,7 @@ console.log(b)//错误，提示你没有声明
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.3k</span>
+      <span>4.3k</span>
     </span>
 </div>
 
@@ -733,14 +736,11 @@ console.log(b)//错误，提示你没有声明
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="Vue2"><a href="#Vue2" class="headerlink" title="Vue2"></a>Vue2</h3><p>需要用到两个包</p>
-<pre><code>npm install file-saver
-npm install xlsx
-</code></pre>
-<p>1.在src中创建配置文件fun.js</p>
+          <h2 id="图片懒加载"><a href="#图片懒加载" class="headerlink" title="图片懒加载"></a>图片懒加载</h2><h4 id="一、懒加载的意义-为什么要使用懒加载"><a href="#一、懒加载的意义-为什么要使用懒加载" class="headerlink" title="一、懒加载的意义(为什么要使用懒加载)"></a>一、懒加载的意义(为什么要使用懒加载)</h4><p>对页面加载速度影响最大的就是图片，一张普通的图片可以达到几M的大小，而代码也许就只有几十KB。当页面图片很多时，页面的加载速度缓慢，几S钟内页面没有加载完成，也许会失去很多的用户。</p>
+<p>所以，对于图片过多的页面，为了加速页面加载速度，所以很多时候我们需要将页面内未出现在可视区域内的图片先不做加载， 等到滚动到可视区域后再去加载。这样子对于页面加载性能上会有很大的提升，也提高了用户体验</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2023/01/01/%E5%AF%BC%E5%87%BA%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E4%B8%BAexcl/#more" rel="contents">
+              <a class="btn" href="/2023/01/01/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
