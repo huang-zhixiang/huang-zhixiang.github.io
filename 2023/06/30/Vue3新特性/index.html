@@ -18,14 +18,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Vue3新特性1.Composition API：组合API(类React Hooks)   vue2为选项式 2.Tree shaking support：按需编译，体积更小 3.速度更快 4.支持TS 5.Custom Renderer API：暴露了自定义渲染API 6.Fragment，Teleport，Susupense:更先进的组件">
+    <meta name="description" content="Vue3新特性">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue3新特性">
 <meta property="og:url" content="http://example.com/2023/06/30/Vue3%E6%96%B0%E7%89%B9%E6%80%A7/index.html">
 <meta property="og:site_name" content="Never 404">
-<meta property="og:description" content="Vue3新特性1.Composition API：组合API(类React Hooks)   vue2为选项式 2.Tree shaking support：按需编译，体积更小 3.速度更快 4.支持TS 5.Custom Renderer API：暴露了自定义渲染API 6.Fragment，Teleport，Susupense:更先进的组件">
+<meta property="og:description" content="Vue3新特性">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://myimagedb.oss-cn-hangzhou.aliyuncs.com/typoraimg/202306301635355.png">
 <meta property="og:image" content="https://myimagedb.oss-cn-hangzhou.aliyuncs.com/typoraimg/202306301636134.png">
@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://myimagedb.oss-cn-hangzhou.aliyuncs.com/typoraimg/202306301638529.png">
 <meta property="og:image" content="https://myimagedb.oss-cn-hangzhou.aliyuncs.com/typoraimg/202306301638108.png">
 <meta property="article:published_time" content="2023-06-30T08:18:14.000Z">
-<meta property="article:modified_time" content="2023-06-30T08:43:56.477Z">
+<meta property="article:modified_time" content="2023-08-24T14:23:09.228Z">
 <meta property="article:author" content="Never 404">
 <meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
@@ -148,7 +148,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue3%E6%96%B0%E7%89%B9%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">Vue3新特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Composition-API"><span class="nav-number">2.</span> <span class="nav-text">Composition API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#setup"><span class="nav-number">2.1.</span> <span class="nav-text">setup()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#setup-%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%8F%82%E6%95%B0"><span class="nav-number">2.1.1.</span> <span class="nav-text">setup()的两个参数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#props%E5%92%8Ccontext"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">props和context</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Props%E4%BC%A0%E5%80%BC"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">Props传值</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setup%E8%AF%AD%E6%B3%95%E7%B3%96"><span class="nav-number">2.1.2.</span> <span class="nav-text">setup语法糖</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ref"><span class="nav-number">2.2.</span> <span class="nav-text">ref()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reactive"><span class="nav-number">2.3.</span> <span class="nav-text">reactive()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue2%E4%B8%8EVue3%E5%93%8D%E5%BA%94%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.</span> <span class="nav-text">Vue2与Vue3响应式的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#computed%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7"><span class="nav-number">4.</span> <span class="nav-text">computed计算属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#watch%E7%9B%91%E5%90%AC%E5%B1%9E%E6%80%A7"><span class="nav-number">5.</span> <span class="nav-text">watch监听属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%9B%91%E8%A7%86%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="nav-number">5.1.</span> <span class="nav-text">1.监视基本类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%9B%91%E8%A7%86%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B"><span class="nav-number">5.2.</span> <span class="nav-text">2.监视对象类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E9%9C%80%E8%A6%81%E6%96%B0%E6%97%A7%E6%95%B0%E6%8D%AE"><span class="nav-number">5.3.</span> <span class="nav-text">不需要新旧数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E5%BA%94%E7%9B%91%E5%90%AC"><span class="nav-number">5.4.</span> <span class="nav-text">对应监听</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E7%9B%91%E5%90%AC%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E4%B8%AD%E7%9A%84%E6%9F%90%E4%B8%80%E9%A1%B9"><span class="nav-number">5.4.1.</span> <span class="nav-text">1.监听对象数据中的某一项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E7%9B%91%E5%90%AC%E5%AF%B9%E8%B1%A1%E4%B8%AD%E7%9A%84%E5%A4%9A%E9%A1%B9%E6%95%B0%E6%8D%AE"><span class="nav-number">5.4.2.</span> <span class="nav-text">2.监听对象中的多项数据</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue3%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82"><span class="nav-number">6.</span> <span class="nav-text">vue3数据请求</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue3%E6%96%B0%E7%89%B9%E6%80%A7"><span class="nav-text">Vue3新特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Composition-API"><span class="nav-text">Composition API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#setup"><span class="nav-text">setup()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#setup-%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%8F%82%E6%95%B0"><span class="nav-text">setup()的两个参数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#props%E5%92%8Ccontext"><span class="nav-text">props和context</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Props%E4%BC%A0%E5%80%BC"><span class="nav-text">Props传值</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setup%E8%AF%AD%E6%B3%95%E7%B3%96"><span class="nav-text">setup语法糖</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ref"><span class="nav-text">ref()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reactive"><span class="nav-text">reactive()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue2%E4%B8%8EVue3%E5%93%8D%E5%BA%94%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">Vue2与Vue3响应式的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#computed%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7"><span class="nav-text">computed计算属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#watch%E7%9B%91%E5%90%AC%E5%B1%9E%E6%80%A7"><span class="nav-text">watch监听属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%9B%91%E8%A7%86%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="nav-text">1.监视基本类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%9B%91%E8%A7%86%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B"><span class="nav-text">2.监视对象类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E9%9C%80%E8%A6%81%E6%96%B0%E6%97%A7%E6%95%B0%E6%8D%AE"><span class="nav-text">不需要新旧数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E5%BA%94%E7%9B%91%E5%90%AC"><span class="nav-text">对应监听</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E7%9B%91%E5%90%AC%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E4%B8%AD%E7%9A%84%E6%9F%90%E4%B8%80%E9%A1%B9"><span class="nav-text">1.监听对象数据中的某一项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E7%9B%91%E5%90%AC%E5%AF%B9%E8%B1%A1%E4%B8%AD%E7%9A%84%E5%A4%9A%E9%A1%B9%E6%95%B0%E6%8D%AE"><span class="nav-text">2.监听对象中的多项数据</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue3%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82"><span class="nav-text">vue3数据请求</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -163,18 +163,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -264,14 +264,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="Vue3新特性"><a href="#Vue3新特性" class="headerlink" title="Vue3新特性"></a>Vue3新特性</h2><p>1.Composition API：组合API(类React Hooks)   vue2为选项式</p>
+        <h2 id="Vue3新特性"><a href="#Vue3新特性" class="headerlink" title="Vue3新特性"></a>Vue3新特性</h2><span id="more"></span>
+
+<p>1.Composition API：组合API(类React Hooks)   vue2为选项式</p>
 <p>2.Tree shaking support：按需编译，体积更小</p>
 <p>3.速度更快</p>
 <p>4.支持TS</p>
 <p>5.Custom Renderer API：暴露了自定义渲染API</p>
 <p>6.Fragment，Teleport，Susupense:更先进的组件</p>
-<span id="more"></span>
-
 <p>Vue3推荐使用vite创建项目</p>
 <p>在当前文件夹按住shift右键打开powershell创建</p>
 <h2 id="Composition-API"><a href="#Composition-API" class="headerlink" title="Composition API"></a>Composition API</h2><h3 id="setup"><a href="#setup" class="headerlink" title="setup()"></a>setup()</h3><p>Vue2在实现一个功能时需要data，method等配合完成</p>

@@ -18,17 +18,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Vue2需要用到两个包 npm install file-saver npm install xlsx  1.在src中创建配置文件fun.js">
+    <meta name="description" content="Vue2需要用到两个包 npm install file-saver npm install xlsx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="导出表格数据为excl">
 <meta property="og:url" content="http://example.com/2023/01/01/%E5%AF%BC%E5%87%BA%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E4%B8%BAexcl/index.html">
 <meta property="og:site_name" content="Never 404">
-<meta property="og:description" content="Vue2需要用到两个包 npm install file-saver npm install xlsx  1.在src中创建配置文件fun.js">
+<meta property="og:description" content="Vue2需要用到两个包 npm install file-saver npm install xlsx">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-01T12:00:00.000Z">
-<meta property="article:modified_time" content="2023-06-28T10:50:17.671Z">
+<meta property="article:modified_time" content="2023-08-24T14:21:57.893Z">
 <meta property="article:author" content="Never 404">
 <meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
@@ -142,7 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue2"><span class="nav-number">1.</span> <span class="nav-text">Vue2</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue2"><span class="nav-text">Vue2</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -157,18 +157,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -247,7 +247,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.3k</span>
+      <span>1.4k</span>
     </span>
 </div>
 
@@ -262,54 +262,23 @@
 <pre><code>npm install file-saver
 npm install xlsx
 </code></pre>
-<p>1.在src中创建配置文件fun.js</p>
 <span id="more"></span>
 
-<pre><code>import FileSaver from &quot;file-saver&quot;;
-import * as XLSX from &quot;xlsx&quot;
+<p>1.在src中创建配置文件fun.js</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import FileSaver from &quot;file-saver&quot;;</span><br><span class="line">import * as XLSX from &quot;xlsx&quot;</span><br><span class="line"></span><br><span class="line">const ex_exel =&#123;</span><br><span class="line">    getExcel(dom,title=&#x27;默认标题&#x27;,)&#123;</span><br><span class="line">        var excelTitle = title;</span><br><span class="line">        var wb = XLSX.utils.table_to_book(document.querySelector(dom));</span><br><span class="line">        /* 获取二进制字符串作为输出 */</span><br><span class="line">        var wbout = XLSX.write(wb, &#123;bookType: &quot;xlsx&quot;,bookSST: true,type: &quot;array&quot;&#125;);</span><br><span class="line">        try &#123;</span><br><span class="line">            FileSaver.saveAs(</span><br><span class="line">                new Blob([wbout], &#123; type: &quot;application/octet-stream&quot; &#125;),</span><br><span class="line">                excelTitle + &quot;.xlsx&quot;</span><br><span class="line">            );</span><br><span class="line">        &#125; catch (e) &#123;</span><br><span class="line">            if (typeof console !== &quot;undefined&quot;) console.log(e, wbout);</span><br><span class="line">        &#125;</span><br><span class="line">        return wbout;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">export default ex_exel</span><br></pre></td></tr></table></figure>
 
-const ex_exel =&#123;
-    getExcel(dom,title=&#39;默认标题&#39;,)&#123;
-        var excelTitle = title;
-        var wb = XLSX.utils.table_to_book(document.querySelector(dom));
-        /* 获取二进制字符串作为输出 */
-        var wbout = XLSX.write(wb, &#123;bookType: &quot;xlsx&quot;,bookSST: true,type: &quot;array&quot;&#125;);
-        try &#123;
-            FileSaver.saveAs(
-                new Blob([wbout], &#123; type: &quot;application/octet-stream&quot; &#125;),
-                excelTitle + &quot;.xlsx&quot;
-            );
-        &#125; catch (e) &#123;
-            if (typeof console !== &quot;undefined&quot;) console.log(e, wbout);
-        &#125;
-        return wbout;
-    &#125;
-&#125;
-export default ex_exel
-</code></pre>
 <p>2.在需要使用的组件中使用</p>
 <pre><code>import ex_exel from &#39;../../fun&#39;  //导入配置文件
 
-
-
 &lt;el-button type=&quot;primary&quot; @click=&quot;exportExel&quot;&gt;导出当前页用户数据&lt;/el-button&gt;
-
-
 
 exportExel()&#123;
     //(&quot;表格标签类名&quot;，&quot;文件名&quot;)
     ex_exel.getExcel(&#39;.el-table&#39;,&#39;用户数据表&#39;);  
 &#125;,
-
-
-
-&lt;el-table :data=&quot;userlist&quot; border stripe&gt;
-    &lt;el-table-column type=&quot;index&quot;&gt;&lt;/el-table-column&gt;
-    &lt;el-table-column label=&quot;用户名&quot; prop=&quot;username&quot;&gt;&lt;/el-table-column&gt;
-    &lt;el-table-column label=&quot;电话&quot; prop=&quot;phonenumber&quot;&gt;&lt;/el-table-column&gt;
-    &lt;el-table-column label=&quot;密码&quot; prop=&quot;password&quot;&gt;&lt;/el-table-column&gt;
-&lt;/el-table&gt;
 </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-table :data=&quot;userlist&quot; border stripe&gt;</span><br><span class="line">    &lt;el-table-column type=&quot;index&quot;&gt;&lt;/el-table-column&gt;</span><br><span class="line">    &lt;el-table-column label=&quot;用户名&quot; prop=&quot;username&quot;&gt;&lt;/el-table-column&gt;</span><br><span class="line">    &lt;el-table-column label=&quot;电话&quot; prop=&quot;phonenumber&quot;&gt;&lt;/el-table-column&gt;</span><br><span class="line">    &lt;el-table-column label=&quot;密码&quot; prop=&quot;password&quot;&gt;&lt;/el-table-column&gt;</span><br><span class="line">&lt;/el-table&gt;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -326,13 +295,13 @@ exportExel()&#123;
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/01/01/%E4%BC%AA%E5%85%83%E7%B4%A0/" rel="prev" title="伪元素">
-                  <i class="fa fa-chevron-left"></i> 伪元素
+                <a href="/2023/01/01/%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E8%BF%9B%E5%BA%A6%E6%9D%A1/" rel="prev" title="页面加载进度条">
+                  <i class="fa fa-chevron-left"></i> 页面加载进度条
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/01/01/hexo%E5%90%8E%E5%8F%B0%E5%B8%B8%E9%A9%BB/" rel="next" title="hexo后台常驻">
-                  hexo后台常驻 <i class="fa fa-chevron-right"></i>
+                <a href="/2023/01/01/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/" rel="next" title="图片懒加载">
+                  图片懒加载 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
