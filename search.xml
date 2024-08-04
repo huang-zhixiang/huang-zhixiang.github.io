@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Next主题优化</title>
+    <url>/2023/08/06/Next%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<h2 id="Next主题增加备案号"><a href="#Next主题增加备案号" class="headerlink" title="Next主题增加备案号"></a>Next主题增加备案号</h2><span id="more"></span>
+
+<p>在主题配置文件<code>_config.yml</code>中找到<code>beian:</code></p>
+<p>修改为:</p>
+<pre><code>beian:
+    enable: true
+    icp: 闽ICP备XXXXX号
+</code></pre>
+<h2 id="修改中文"><a href="#修改中文" class="headerlink" title="修改中文"></a>修改中文</h2><p>站点配置文件语言修改为<code>zh-CN</code></p>
+<h2 id="删除底部的强力驱动"><a href="#删除底部的强力驱动" class="headerlink" title="删除底部的强力驱动"></a>删除底部的强力驱动</h2><p>在主题配置文件<code>_config.yml</code>中找到<code>copyright:</code></p>
+<p>修改为:</p>
+<pre><code>copyright:
+  powered: false
+</code></pre>
+<h2 id="Next增加头像"><a href="#Next增加头像" class="headerlink" title="Next增加头像"></a>Next增加头像</h2><p>把头像放到 <code>\HexoBlog\public\images</code>中</p>
+<p>在主题配置文件<code>_config.yml</code>中找到<code>avatar</code></p>
+<p>把url修改为图片文件名</p>
+<pre><code>avatar:
+  url: /images/one.jpg
+  rounded: true   #true为原形  flase为方形
+</code></pre>
+<h2 id="修改字体大小"><a href="#修改字体大小" class="headerlink" title="修改字体大小"></a>修改字体大小</h2><p>themes\next\source\css_variables\base.styl</p>
+<pre><code>// Font size
+//将字体大小改为14px 将原本的注释掉
+$font-size-base           = 14px;
+//$font-size-base           = (hexo-config(&#39;font.enable&#39;) and hexo-config(&#39;font.global.size&#39;) is a &#39;unit&#39;) ? unit(hexo-config(&#39;font.global.size&#39;), em) : 1em;
+$font-size-smallest       = .75em;
+$font-size-smaller        = .8125em;
+$font-size-small          = .875em;
+$font-size-medium         = 1em;
+$font-size-large          = 1.125em;
+$font-size-larger         = 1.25em;
+$font-size-largest        = 1.5em;
+</code></pre>
+<h2 id="增加分类和标签"><a href="#增加分类和标签" class="headerlink" title="增加分类和标签"></a>增加分类和标签</h2><p>在主题配置文件<code>_config.yml</code>中找到<code>menu:</code></p>
+<p>把<code>tags</code>和<code>categories</code>取消注释</p>
+<pre><code>menu:
+      home: / || fa fa-home
+        tags: /tags/ || fa fa-tags
+        categories: /categories/ || fa fa-th
+        archives: /archives/ || fa fa-archive
+</code></pre>
+<p>增加tage和categories页面</p>
+<pre><code>hexo new page &quot;tags&quot;
+hexo new page &quot;categories&quot;
+</code></pre>
+<p>在 <code>HexoBlog\source\categories</code>和<code>HexoBlog\source\categories</code>的<code>index.md</code>中分别增加</p>
+<pre><code>title: 文章分类
+date: 2020-11-08 23:59:42
+type: &quot;categories&quot;
+
+
+
+title: 标签
+date: 2020-11-08 23:40:25
+type: &quot;tags&quot;
+</code></pre>
+<p>之后就可以在文章的开头设置分类是标签</p>
+<pre><code>title: hexo的树莓派部署
+date: 2020-11-07 00:01:05
+tags: 标签名
+categories: 分类名 
+</code></pre>
+<h2 id="修改网站图标"><a href="#修改网站图标" class="headerlink" title="修改网站图标"></a>修改网站图标</h2><p>把要修改的图片放到<code>public/images</code>文件夹下</p>
+<p>修改主题配置文件<code>_config.yml</code>找到<code>favicon:</code>修改为自己的图片</p>
+<pre><code>favicon:
+  small: /images/webimg.png
+  medium: /images/webimg.png
+</code></pre>
+<p>重新部署即可</p>
+<pre><code>hexo g
+hexo s
+</code></pre>
+<h2 id="修改标题与内容之间的间距"><a href="#修改标题与内容之间的间距" class="headerlink" title="修改标题与内容之间的间距"></a>修改标题与内容之间的间距</h2><p>themes\next\source\css_common\components\post\post-header.styl</p>
+<pre><code>.posts-expand .post-header &#123;
+  font-size: $font-size-large;
+  //注释掉
+  //margin-bottom: 60px; 
+  text-align: center;
+&#125;
+</code></pre>
+<h2 id="修改首页底部横线的外边距-文章之间的间隔"><a href="#修改首页底部横线的外边距-文章之间的间隔" class="headerlink" title="修改首页底部横线的外边距 文章之间的间隔"></a>修改首页底部横线的外边距 文章之间的间隔</h2><p>themes\next\source\css_common\components\post\post-footer.styl</p>
+<pre><code>.post-eof &#123;
+  background: $grey-light;
+  height: 1px;
+  
+  //注释掉
+  //margin: $post-eof-margin-top auto $post-eof-margin-bottom;
+  margin: 30px auto 50px;
+  
+  width: 8%;
+
+  .post-block:last-of-type &amp; &#123;
+    display: none;
+  &#125;
+&#125;
+</code></pre>
+<h2 id="修改查看全文按钮的外边距"><a href="#修改查看全文按钮的外边距" class="headerlink" title="修改查看全文按钮的外边距"></a>修改查看全文按钮的外边距</h2><p>themes\next\source\css_common\components\post\index.styl</p>
+<pre><code>.post-button &#123;
+  margin-top: 20px;
+  //注释掉
+  //margin-top: 40px;
+  text-align: $scheme-text-align;
+&#125;
+</code></pre>
+<h2 id="修改文章页标题与底部的距离"><a href="#修改文章页标题与底部的距离" class="headerlink" title="修改文章页标题与底部的距离"></a>修改文章页标题与底部的距离</h2><p>themes\next\source\css_schemes\Muse_layout.styl</p>
+<pre><code>.post-block:first-of-type &#123;
+  padding-top: 30px;
+  //注释掉
+  //padding-top: $posts-first-padding;
+
+  +mobile() &#123;
+    padding-top: $posts-first-padding-mobile;
+  &#125;
+&#125;
+</code></pre>
+<h2 id="修改代码块样式"><a href="#修改代码块样式" class="headerlink" title="修改代码块样式"></a>修改代码块样式</h2><p>修改主题配置文件<code>_config.yml</code>中的<code>codeblock:</code></p>
+<pre><code>highlight_theme: night  //修改代码块背景主题
+copy_button:
+    enable: true   //显示代码复制按钮
+    show_result: true  //显示代码复制结果
+    style: mac  //代码块样式为mac系统
+</code></pre>
+<h2 id="关闭文章更新时间"><a href="#关闭文章更新时间" class="headerlink" title="关闭文章更新时间"></a>关闭文章更新时间</h2><p>修改主题配置文件<code>_config.yml</code>中的<code>updated_at</code><br>将enable:改为false</p>
+<h2 id="关闭文章目录的编号"><a href="#关闭文章目录的编号" class="headerlink" title="关闭文章目录的编号"></a>关闭文章目录的编号</h2><p>修改主题配置文件<code>_config.yml</code>中的<code>number:</code>为false</p>
+<h2 id="搜索功能"><a href="#搜索功能" class="headerlink" title="搜索功能"></a>搜索功能</h2><p>NexT 主题自带了一个搜索功能 <a href="https://github.com/next-theme/hexo-generator-searchdb">Local Search</a>，即在编译文件时本地生成一个数据库，放在网站根目录下，用户借助此数据库进行搜索查询。 安装：</p>
+<pre><code>npm install hexo-generator-searchdb
+</code></pre>
+<p>在 NexT 的配置文件中打开：</p>
+<pre><code>local_search:
+  enable: true
+</code></pre>
+<p>改头像</p>
+<h2 id="Canvas-nest-背景动画"><a href="#Canvas-nest-背景动画" class="headerlink" title="Canvas nest 背景动画"></a>Canvas nest 背景动画</h2><p>为了使背景不那么单调，加入了一个几乎不影响性能的背景动画，配置细节参考<a href="https://github.com/theme-next/theme-next-canvas-nest">官方说明</a>。 在 <code>source/_data</code> 目录 (若不存在则新建一个) 下新建文件 <code>footer.njk</code>，内容（默认来自 jsdelivr 但是最近似乎国内访问出现问题，故改成了来自一个国内的 cdnjs 镜像 baomitu）：</p>
+<pre><code>&lt;script color=&quot;0,0,255&quot; opacity=&quot;0.5&quot; zIndex=&quot;-1&quot; count=&quot;99&quot; src=&quot;https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>然后在 NexT 的配置文件中找到 <code>custom_file_path</code> 一项将 footer 一行取消注释：</p>
+<pre><code>custom_file_path:
+  footer: source/_data/footer.njk
+</code></pre>
+<h2 id="盘古插件"><a href="#盘古插件" class="headerlink" title="盘古插件"></a>盘古插件</h2><p>方便显示，在中英文已经数字符合等合适位置加入一下空格间隔以美化 UI。</p>
+<pre><code>pangu: true
+</code></pre>
+<h2 id="动画效果"><a href="#动画效果" class="headerlink" title="动画效果"></a>动画效果</h2><p>NexT 默认启用动画效果，Anime.js 和 Animate.css 支持该效果，因此它将等待 JavaScript 加载以显示内容。<br>如果您需要速度，可以设置 to 的值以禁用它。<code>motion.enable:false</code></p>
+<p>编辑 NexT 配置文件并在 下设置所需的值以满足您的需求。您可以在此处预览所有过渡变体：<a href="https://theme-next.js.org/animate/">NexT 动画效果预览</a>。<code>motion</code></p>
+<pre><code>NexT 配置文件
+# Use Animate.css to animate everything.
+# For more information: https://animate.style
+motion:
+  enable: true
+  async: false
+  transition:
+    # All available Transition variants: https://theme-next.js.org/animate/
+    post_block: fadeIn
+    post_header: fadeInDown
+    post_body: fadeInDown
+    coll_header: fadeInLeft
+    # Only for Pisces | Gemini.
+    sidebar: fadeInUp
+</code></pre>
+<h2 id="进度条"><a href="#进度条" class="headerlink" title="进度条"></a>进度条</h2><p><a href="https://github.com/CodeByZach/pace">步伐</a>将自动监控您的 Ajax 请求、事件循环滞后、文档就绪状态和页面上的元素，以决定进度。</p>
+<ul>
+<li><a href="https://theme-next.js.org/docs/third-party-services/external-libraries.html#pace-1"><code>pace</code></a></li>
+<li><a href="https://theme-next.js.org/docs/third-party-services/external-libraries.html#pace-2"><code>color</code></a></li>
+<li><a href="https://theme-next.js.org/docs/third-party-services/external-libraries.html#pace-3"><code>theme</code></a></li>
+</ul>
+<p>您可以通过在 NexT 配置文件中将值设置为来启用它。<code>pace.enable``true</code></p>
+<pre><code>NexT 配置文件
+pace:
+  enable: true
+</code></pre>
+<h2 id="帆布丝带背景"><a href="#帆布丝带背景" class="headerlink" title="帆布丝带背景"></a>帆布丝带背景</h2><p><a href="https://github.com/hustcc/ribbon.js">帆布丝带.js</a>是画布上网站绘制的丝带背景。</p>
+<p>您可以通过在 NexT 配置文件中将值设置为来启用它。您还可以通过编辑部分中的值来配置功能区设置：<code>canvas_ribbon``true``canvas_ribbon</code></p>
+<ul>
+<li><p>大小：功能区的宽度。</p>
+</li>
+<li><p>alpha：功能区的透明度。</p>
+</li>
+<li><p>z索引：功能区的显示级别。</p>
+<p>NexT 配置文件<br>canvas_ribbon:<br>  enable: true<br>  size: 300<br>  alpha: 0.6<br>  zIndex: -1</p>
+</li>
+</ul>
+<h2 id="文章插入视频"><a href="#文章插入视频" class="headerlink" title="文章插入视频"></a>文章插入视频</h2><iframe src="//player.bilibili.com/player.html?aid=957594224&bvid=BV1Yp4y1n7Eo&cid=1243633693&page=1" allowfullscreen="allowfullscreen" width="100%" height="500" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts">\</iframe>
+]]></content>
+      <categories>
+        <category>hexo博客</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Next主题优2</title>
+    <url>/2023/08/06/Next%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%962/</url>
+    <content><![CDATA[<h2 id="Next主题增加备案号"><a href="#Next主题增加备案号" class="headerlink" title="Next主题增加备案号"></a>Next主题增加备案号</h2><span id="more"></span>
+
+<p>在主题配置文件<code>_config.yml</code>中找到<code>beian:</code></p>
+<p>修改为:</p>
+<pre><code>beian:
+    enable: true
+    icp: 闽ICP备XXXXX号
+</code></pre>
+<h2 id="修改中文"><a href="#修改中文" class="headerlink" title="修改中文"></a>修改中文</h2><p>站点配置文件语言修改为<code>zh-CN</code></p>
+<h2 id="删除底部的强力驱动"><a href="#删除底部的强力驱动" class="headerlink" title="删除底部的强力驱动"></a>删除底部的强力驱动</h2><p>在主题配置文件<code>_config.yml</code>中找到<code>copyright:</code></p>
+<p>修改为:</p>
+<pre><code>copyright:
+  powered: false
+</code></pre>
+<h2 id="Next增加头像"><a href="#Next增加头像" class="headerlink" title="Next增加头像"></a>Next增加头像</h2><p>把头像放到 <code>\HexoBlog\public\images</code>中</p>
+<p>在主题配置文件<code>_config.yml</code>中找到<code>avatar</code></p>
+<p>把url修改为图片文件名</p>
+<pre><code>avatar:
+  url: /images/one.jpg
+  rounded: true   #true为原形  flase为方形
+</code></pre>
+<h2 id="修改字体大小"><a href="#修改字体大小" class="headerlink" title="修改字体大小"></a>修改字体大小</h2><p>themes\next\source\css_variables\base.styl</p>
+<pre><code>// Font size
+//将字体大小改为14px 将原本的注释掉
+$font-size-base           = 14px;
+//$font-size-base           = (hexo-config(&#39;font.enable&#39;) and hexo-config(&#39;font.global.size&#39;) is a &#39;unit&#39;) ? unit(hexo-config(&#39;font.global.size&#39;), em) : 1em;
+$font-size-smallest       = .75em;
+$font-size-smaller        = .8125em;
+$font-size-small          = .875em;
+$font-size-medium         = 1em;
+$font-size-large          = 1.125em;
+$font-size-larger         = 1.25em;
+$font-size-largest        = 1.5em;
+</code></pre>
+<h2 id="增加分类和标签"><a href="#增加分类和标签" class="headerlink" title="增加分类和标签"></a>增加分类和标签</h2><p>在主题配置文件<code>_config.yml</code>中找到<code>menu:</code></p>
+<p>把<code>tags</code>和<code>categories</code>取消注释</p>
+<pre><code>menu:
+      home: / || fa fa-home
+        tags: /tags/ || fa fa-tags
+        categories: /categories/ || fa fa-th
+        archives: /archives/ || fa fa-archive
+</code></pre>
+<p>增加tage和categories页面</p>
+<pre><code>hexo new page &quot;tags&quot;
+hexo new page &quot;categories&quot;
+</code></pre>
+<p>在 <code>HexoBlog\source\categories</code>和<code>HexoBlog\source\categories</code>的<code>index.md</code>中分别增加</p>
+<pre><code>title: 文章分类
+date: 2020-11-08 23:59:42
+type: &quot;categories&quot;
+
+
+
+title: 标签
+date: 2020-11-08 23:40:25
+type: &quot;tags&quot;
+</code></pre>
+<p>之后就可以在文章的开头设置分类是标签</p>
+<pre><code>title: hexo的树莓派部署
+date: 2020-11-07 00:01:05
+tags: 标签名
+categories: 分类名 
+</code></pre>
+<h2 id="修改网站图标"><a href="#修改网站图标" class="headerlink" title="修改网站图标"></a>修改网站图标</h2><p>把要修改的图片放到<code>public/images</code>文件夹下</p>
+<p>修改主题配置文件<code>_config.yml</code>找到<code>favicon:</code>修改为自己的图片</p>
+<pre><code>favicon:
+  small: /images/webimg.png
+  medium: /images/webimg.png
+</code></pre>
+<p>重新部署即可</p>
+<pre><code>hexo g
+hexo s
+</code></pre>
+<h2 id="修改标题与内容之间的间距"><a href="#修改标题与内容之间的间距" class="headerlink" title="修改标题与内容之间的间距"></a>修改标题与内容之间的间距</h2><p>themes\next\source\css_common\components\post\post-header.styl</p>
+<pre><code>.posts-expand .post-header &#123;
+  font-size: $font-size-large;
+  //注释掉
+  //margin-bottom: 60px; 
+  text-align: center;
+&#125;
+</code></pre>
+<h2 id="修改首页底部横线的外边距-文章之间的间隔"><a href="#修改首页底部横线的外边距-文章之间的间隔" class="headerlink" title="修改首页底部横线的外边距 文章之间的间隔"></a>修改首页底部横线的外边距 文章之间的间隔</h2><p>themes\next\source\css_common\components\post\post-footer.styl</p>
+<pre><code>.post-eof &#123;
+  background: $grey-light;
+  height: 1px;
+  
+  //注释掉
+  //margin: $post-eof-margin-top auto $post-eof-margin-bottom;
+  margin: 30px auto 50px;
+  
+  width: 8%;
+
+  .post-block:last-of-type &amp; &#123;
+    display: none;
+  &#125;
+&#125;
+</code></pre>
+<h2 id="修改查看全文按钮的外边距"><a href="#修改查看全文按钮的外边距" class="headerlink" title="修改查看全文按钮的外边距"></a>修改查看全文按钮的外边距</h2><p>themes\next\source\css_common\components\post\index.styl</p>
+<pre><code>.post-button &#123;
+  margin-top: 20px;
+  //注释掉
+  //margin-top: 40px;
+  text-align: $scheme-text-align;
+&#125;
+</code></pre>
+<h2 id="修改文章页标题与底部的距离"><a href="#修改文章页标题与底部的距离" class="headerlink" title="修改文章页标题与底部的距离"></a>修改文章页标题与底部的距离</h2><p>themes\next\source\css_schemes\Muse_layout.styl</p>
+<pre><code>.post-block:first-of-type &#123;
+  padding-top: 30px;
+  //注释掉
+  //padding-top: $posts-first-padding;
+
+  +mobile() &#123;
+    padding-top: $posts-first-padding-mobile;
+  &#125;
+&#125;
+</code></pre>
+<h2 id="修改代码块样式"><a href="#修改代码块样式" class="headerlink" title="修改代码块样式"></a>修改代码块样式</h2><p>修改主题配置文件<code>_config.yml</code>中的<code>codeblock:</code></p>
+<pre><code>highlight_theme: night  //修改代码块背景主题
+copy_button:
+    enable: true   //显示代码复制按钮
+    show_result: true  //显示代码复制结果
+    style: mac  //代码块样式为mac系统
+</code></pre>
+<h2 id="关闭文章更新时间"><a href="#关闭文章更新时间" class="headerlink" title="关闭文章更新时间"></a>关闭文章更新时间</h2><p>修改主题配置文件<code>_config.yml</code>中的<code>updated_at</code><br>将enable:改为false</p>
+<h2 id="关闭文章目录的编号"><a href="#关闭文章目录的编号" class="headerlink" title="关闭文章目录的编号"></a>关闭文章目录的编号</h2><p>修改主题配置文件<code>_config.yml</code>中的<code>number:</code>为false</p>
+<h2 id="搜索功能"><a href="#搜索功能" class="headerlink" title="搜索功能"></a>搜索功能</h2><p>NexT 主题自带了一个搜索功能 <a href="https://github.com/next-theme/hexo-generator-searchdb">Local Search</a>，即在编译文件时本地生成一个数据库，放在网站根目录下，用户借助此数据库进行搜索查询。 安装：</p>
+<pre><code>npm install hexo-generator-searchdb
+</code></pre>
+<p>在 NexT 的配置文件中打开：</p>
+<pre><code>local_search:
+  enable: true
+</code></pre>
+<p>改头像</p>
+<h2 id="Canvas-nest-背景动画"><a href="#Canvas-nest-背景动画" class="headerlink" title="Canvas nest 背景动画"></a>Canvas nest 背景动画</h2><p>为了使背景不那么单调，加入了一个几乎不影响性能的背景动画，配置细节参考<a href="https://github.com/theme-next/theme-next-canvas-nest">官方说明</a>。 在 <code>source/_data</code> 目录 (若不存在则新建一个) 下新建文件 <code>footer.njk</code>，内容（默认来自 jsdelivr 但是最近似乎国内访问出现问题，故改成了来自一个国内的 cdnjs 镜像 baomitu）：</p>
+<pre><code>&lt;script color=&quot;0,0,255&quot; opacity=&quot;0.5&quot; zIndex=&quot;-1&quot; count=&quot;99&quot; src=&quot;https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>然后在 NexT 的配置文件中找到 <code>custom_file_path</code> 一项将 footer 一行取消注释：</p>
+<pre><code>custom_file_path:
+  footer: source/_data/footer.njk
+</code></pre>
+<h2 id="盘古插件"><a href="#盘古插件" class="headerlink" title="盘古插件"></a>盘古插件</h2><p>方便显示，在中英文已经数字符合等合适位置加入一下空格间隔以美化 UI。</p>
+<pre><code>pangu: true
+</code></pre>
+<h2 id="动画效果"><a href="#动画效果" class="headerlink" title="动画效果"></a>动画效果</h2><p>NexT 默认启用动画效果，Anime.js 和 Animate.css 支持该效果，因此它将等待 JavaScript 加载以显示内容。<br>如果您需要速度，可以设置 to 的值以禁用它。<code>motion.enable:false</code></p>
+<p>编辑 NexT 配置文件并在 下设置所需的值以满足您的需求。您可以在此处预览所有过渡变体：<a href="https://theme-next.js.org/animate/">NexT 动画效果预览</a>。<code>motion</code></p>
+<pre><code>NexT 配置文件
+# Use Animate.css to animate everything.
+# For more information: https://animate.style
+motion:
+  enable: true
+  async: false
+  transition:
+    # All available Transition variants: https://theme-next.js.org/animate/
+    post_block: fadeIn
+    post_header: fadeInDown
+    post_body: fadeInDown
+    coll_header: fadeInLeft
+    # Only for Pisces | Gemini.
+    sidebar: fadeInUp
+</code></pre>
+<h2 id="进度条"><a href="#进度条" class="headerlink" title="进度条"></a>进度条</h2><p><a href="https://github.com/CodeByZach/pace">步伐</a>将自动监控您的 Ajax 请求、事件循环滞后、文档就绪状态和页面上的元素，以决定进度。</p>
+<ul>
+<li><a href="https://theme-next.js.org/docs/third-party-services/external-libraries.html#pace-1"><code>pace</code></a></li>
+<li><a href="https://theme-next.js.org/docs/third-party-services/external-libraries.html#pace-2"><code>color</code></a></li>
+<li><a href="https://theme-next.js.org/docs/third-party-services/external-libraries.html#pace-3"><code>theme</code></a></li>
+</ul>
+<p>您可以通过在 NexT 配置文件中将值设置为来启用它。<code>pace.enable``true</code></p>
+<pre><code>NexT 配置文件
+pace:
+  enable: true
+</code></pre>
+<h2 id="帆布丝带背景"><a href="#帆布丝带背景" class="headerlink" title="帆布丝带背景"></a>帆布丝带背景</h2><p><a href="https://github.com/hustcc/ribbon.js">帆布丝带.js</a>是画布上网站绘制的丝带背景。</p>
+<p>您可以通过在 NexT 配置文件中将值设置为来启用它。您还可以通过编辑部分中的值来配置功能区设置：<code>canvas_ribbon``true``canvas_ribbon</code></p>
+<ul>
+<li><p>大小：功能区的宽度。</p>
+</li>
+<li><p>alpha：功能区的透明度。</p>
+</li>
+<li><p>z索引：功能区的显示级别。</p>
+<p>NexT 配置文件<br>canvas_ribbon:<br>  enable: true<br>  size: 300<br>  alpha: 0.6<br>  zIndex: -1</p>
+</li>
+</ul>
+<h2 id="文章插入视频"><a href="#文章插入视频" class="headerlink" title="文章插入视频"></a>文章插入视频</h2><iframe src="//player.bilibili.com/player.html?aid=957594224&bvid=BV1Yp4y1n7Eo&cid=1243633693&page=1" allowfullscreen="allowfullscreen" width="100%" height="500" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts">\</iframe>
+]]></content>
+      <categories>
+        <category>hexo博客</category>
+      </categories>
+  </entry>
+</search>
